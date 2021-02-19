@@ -16,6 +16,8 @@ canvas {
 header {
   margin: .5em;
   margin-left: 4em;
+  position: relative;
+  z-index: 20;
 }
 
 .sketch-title {
@@ -31,6 +33,7 @@ header {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 21;
 }
 
 .fps {

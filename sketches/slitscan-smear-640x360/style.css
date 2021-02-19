@@ -1,0 +1,89 @@
+* {margin: 0; padding: 0; box-sizing: border-box}
+
+html {
+  font-size: 12px;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  color: #222;
+}
+
+canvas {
+    display: block;
+}
+
+header {
+  margin: .5em;
+  margin-left: 4em;
+  position: relative;
+  z-index: 20;
+}
+
+.sketch-title {
+  margin: 0 0 .325em 0;
+  font-size: 1.5rem;
+}
+
+.back {
+  margin: .5em;
+  padding: .25em;
+  display: inline-block;
+  color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 21;
+}
+
+.fps {
+  font-weight: 800;
+  color: purple;
+  font-size: .9em;
+}
+
+.back:hover {
+  color: #fff;
+  background: #222;
+}
+
+li {
+  list-style-type: none;
+  margin: .25em;
+  margin-right: 1em;
+  display: inline;
+}
+
+input[type="checkbox"] {
+  margin-right: .25em;
+}
+
+input[type="checkbox"]:checked {
+  background: black !important;
+  color: red;
+}
+
+#sketch-parent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) ;
+}
+
+#vid-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 12.5%)  scale(.25) rotateY(180deg);
+}
+
+.scanline {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 2px;
+    height: 100%;
+    background: rgba(255, 0, 0, .75);
+    z-index: 10;
+    display: none;
+}
