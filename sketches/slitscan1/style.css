@@ -1,7 +1,63 @@
 * {margin: 0; padding: 0; box-sizing: border-box}
 
+html {
+  font-size: 12px;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  color: #222;
+}
+
 canvas {
     display: block;
+}
+
+header {
+  margin: .5em;
+  margin-left: 4em;
+}
+
+.sketch-title {
+  margin: 0 0 .325em 0;
+  font-size: 1.5rem;
+}
+
+.back {
+  margin: .5em;
+  padding: .25em;
+  display: inline-block;
+  color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.fps {
+  font-weight: 800;
+  color: purple;
+  font-size: .9em;
+}
+
+.back:hover {
+  color: #fff;
+  background: #222;
+}
+
+li {
+  list-style-type: none;
+  margin: .25em;
+  margin-right: 1em;
+  display: inline;
+}
+
+input[type="checkbox"] {
+  margin-right: .25em;
+}
+
+input[type="checkbox"]:checked {
+  background: black !important;
+  color: red;
 }
 
 #sketch-parent {

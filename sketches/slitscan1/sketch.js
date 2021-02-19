@@ -11,7 +11,6 @@ let paused = false;
 let canvas;
 
 function setup() {
-    createSpan('asdf').addClass('fps');
   canvas = createCanvas(innerWidth, h);
   canvas.parent('#sketch-parent');
   pixelDensity(1);
@@ -36,7 +35,6 @@ function draw() {
     if (targetX > width) {
         screencap();
         targetX = -1;
-        imgCount++;
     }
     drawFPS();
 }
@@ -63,9 +61,12 @@ function checkForVideo() {
 
 function drawFPS() {
     if($('#framerate-toggle').is(':checked')){
+        $('.fps').show();
         if(frameCount % 5 == 0){
             select('.fps').html(Math.floor(frameRate()));
         }
+    } else {
+        $('.fps').hide();
     }
 }
 
@@ -73,7 +74,6 @@ function keyPressed() {
     if(key == 'v') {
         $('#vid-container').toggle(); 
     }
-
     else if(key == ' ') {
         paused = !paused;
         if(paused) {
@@ -83,15 +83,17 @@ function keyPressed() {
         }
     }
 
-    else if(key == 's'){
-        save(canvas, `slitscan1_ats-${session}-${imgCount}.png`);
-    }
+    // else if(key == 's'){
+    //     save(`slitscan_smear-ats-${session}-${imgCount}.png`);
+    //     imgCount++;
+    // }
 }
 
 function screencap() {
     if($('#save-img-toggle').is(':checked')) {
-        save(canvas, `slitscan1_ats-${session}-${imgCount}.png`);
+        save(`slitscan_smear-ats-${session}-${imgCount}.png`);
     }
+    imgCount++;
 }
 
 
