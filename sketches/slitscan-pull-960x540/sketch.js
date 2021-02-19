@@ -1,6 +1,6 @@
 let capture;
-let w = 320;
-let h = 240;
+let w = 960;
+let h = 540;
 let fpsGraphics;
 let shouldScan = false;
 let session = ""+Math.floor(Date.now());
