@@ -1,18 +1,24 @@
 let capture;
-let targetX = 0;
+let targetX = -1;
 let w = 640;
-let h = 480;
+let h = 360;
 let fpsGraphics;
 let shouldScan = false;
+let session = ""+Math.floor(Date.now());
+session = session.slice(session.length-6, session.length);
+let imgCount = 0;
+let paused = false;
+let canvas;
 
 function setup() {
-  let canvas = createCanvas(innerWidth+2, h);
+    createSpan('asdf').addClass('fps');
+  canvas = createCanvas(innerWidth, h);
   canvas.parent('#sketch-parent');
-  fpsGraphics = createGraphics(100, 20);
   pixelDensity(1);
   capture = createCapture(VIDEO);
+  $("video").appendTo('#vid-container');
+  
   capture.size(w, h);
-  //capture.hide();
   background(255);
 }
 
@@ -28,13 +34,18 @@ function draw() {
     }
     
     if (targetX > width) {
-        targetX = 0;
+        screencap();
+        targetX = -1;
+        imgCount++;
     }
-    //drawFPS();
-    //image(capture, w/2, 100);
+    drawFPS();
 }
 
-
+function windowResized() {
+    resizeCanvas(innerWidth, h);
+    background(255);
+    targetX = -1;
+}
 
 function checkForVideo() {
     let total = 0;
@@ -44,29 +55,44 @@ function checkForVideo() {
         }
     }
     if(total > 0 && !Number.isNaN(total)) {
+        $('.scanline').show();
+        $('#vid-container').toggle();
         return true;
     }
 }
 
 function drawFPS() {
-    if(frameCount % 60 == 0){
-        let avgFrameRate = floor(frameCount/(millis()/1000));
-        fpsGraphics.background(0);
-        fpsGraphics.fill(255);
-        fpsGraphics.text(avgFrameRate, 10, 10);
-        image(fpsGraphics, 10, 10);
+    if($('#framerate-toggle').is(':checked')){
+        if(frameCount % 5 == 0){
+            select('.fps').html(Math.floor(frameRate()));
+        }
     }
 }
 
-$('body').click(function(){
-    if($('video').parent()[0].localName == 'body'){
-        $("video").appendTo('#vid-container');
-        // $("video").toggle();
-        $('#vid-container').toggle();
-    } else {
-        $('#vid-container').toggle();
+function keyPressed() {
+    if(key == 'v') {
+        $('#vid-container').toggle(); 
     }
-})
+
+    else if(key == ' ') {
+        paused = !paused;
+        if(paused) {
+            noLoop();
+        } else {
+            loop();
+        }
+    }
+
+    else if(key == 's'){
+        save(canvas, `slitscan1_ats-${session}-${imgCount}.png`);
+    }
+}
+
+function screencap() {
+    if($('#save-img-toggle').is(':checked')) {
+        save(canvas, `slitscan1_ats-${session}-${imgCount}.png`);
+    }
+}
 
 
 

@@ -4,23 +4,18 @@ canvas {
     display: block;
 }
 
-/* body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-} */
-
 #sketch-parent {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) ;
 }
 
 #vid-container {
     position: absolute;
-    transform: scale(.25);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 12.5%)  scale(.25) rotateY(180deg);
 }
 
 .scanline {
@@ -29,10 +24,7 @@ canvas {
     transform: translate(-50%, 0);
     width: 2px;
     height: 100%;
-    background: red;
+    background: rgba(255, 0, 0, .75);
     z-index: 10;
-}
-
-/* video {
     display: none;
-} */
+}
