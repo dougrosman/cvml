@@ -61,10 +61,11 @@ function drawFPS() {
 $('body').click(function(){
     if($('video').parent()[0].localName == 'body'){
         $("video").appendTo('#vid-container');
+        // $("video").toggle();
+        $('#vid-container').toggle();
     } else {
         $('#vid-container').toggle();
     }
-    
 })
 
 
