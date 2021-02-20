@@ -24,7 +24,7 @@ function draw() {
   push();
     translate(w, 0);
     scale(-1, 1);
-    image(capture, w/1.325, 0);
+    image(capture, w/1.6, 0);
   pop();
   
   capture.loadPixels();
