@@ -1,7 +1,7 @@
 * {margin: 0; padding: 0; box-sizing: border-box}
 
 html {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 body {
@@ -10,14 +10,42 @@ body {
 }
 
 canvas {
-    display: block;
+  display: block;
+}
+
+.text-hover {
+  position: absolute;
+  font-size: 1.25rem;
+  font-style: italic;
+  top: 3em;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  color: #888;
+  z-index: -1;
+  animation: fade 16s forwards;
 }
 
 header {
   margin: .5em;
-  margin-left: 4em;
-  position: relative;
-  z-index: 20;
+  opacity: 0;
+  transition: opacity .5s 1s;
+  background: white;
+}
+
+header:hover {
+  opacity: 1;
+  transition: opacity .5s;
+}
+
+.fade {
+  animation: fade 10s forwards;
+}
+
+@keyframes fade {
+  0% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
 }
 
 .sketch-title {
@@ -32,7 +60,7 @@ header {
   color: black;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 0px;
   z-index: 21;
 }
 
@@ -46,16 +74,28 @@ header {
   color: #fff;
   background: #222;
 }
-
+ul {
+  display: flex;
+  flex-wrap: wrap;
+}
 li {
   list-style-type: none;
   margin: .25em;
+  margin-left: 0;
   margin-right: 1em;
-  display: inline;
+  background: #eee;
+  padding: .5em;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+li strong {
+  margin-right: .25em;
 }
 
 input[type="checkbox"] {
-  margin-right: .25em;
+  margin-right: .325em;
 }
 
 #sketch-parent {
@@ -63,22 +103,4 @@ input[type="checkbox"] {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) ;
-}
-
-#vid-container {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, 12.5%)  scale(.25) rotateY(180deg);
-}
-
-.scanline {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-    width: 2px;
-    height: 100%;
-    background: rgba(255, 0, 0, .75);
-    z-index: 10;
-    display: none;
 }

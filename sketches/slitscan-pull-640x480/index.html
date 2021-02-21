@@ -10,15 +10,28 @@
   <title>Slit-Scan: Pull (640x480)</title>
 </head>
 <body>
-  <a href="../.." class="back">Back</a>
-  <header>
+  <div class="text-hover">[hover]</div>
+  <header class="fade">
     <h1 class="sketch-title">Slit-Scan: Pull (640x480)</h1>
     <div class="instructions">
       <ul>
-        <li>S: Take Screenshot</li>
-        <li>Space: Pause</li>
-        <li><input class="checkbox" type="checkbox" name="save-img-toggle" id="save-img-toggle" checked>Save scan every 10 seconds</li>
-        <li><input class="checkbox" type="checkbox" name="framerate-toggle" id="framerate-toggle">Show Framerate <span class="fps"></span></li>
+        <li><em>This sketch runs best in Chrome</em></li>
+        <li><strong>Space: </strong>Pause/Resume</li>
+        <li><strong>S:</strong> Save Scan</li>
+        <li><strong>V:</strong> Show/hide scan line</li>
+        <li><strong>Left/Right Arrow Keys:</strong> move scan line left/right</li>
+        <li>
+          <input class="checkbox" type="checkbox" name="save-img-toggle" id="save-img-toggle">
+          <label for="save-img-toggle">Save scan every 10 seconds</label>
+        </li>
+        <li>
+          <input class="checkbox" type="checkbox" name="darkmode-toggle" id="darkmode-toggle">
+          <label for="darkmode-toggle">Dark mode</label>
+        </li>
+        <li>
+          <input class="checkbox" type="checkbox" name="framerate-toggle" id="framerate-toggle">
+          <label for="framerate-toggle">Show Framerate: <span class="fps"></span></label>
+        </li>
       </ul>
     </div>
   </header>

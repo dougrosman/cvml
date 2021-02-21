@@ -1,7 +1,7 @@
 * {margin: 0; padding: 0; box-sizing: border-box}
 
 html {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 body {
@@ -9,16 +9,43 @@ body {
   color: #222;
 }
 
-video {
-  transform: rotateY(180deg);
-}
-
 canvas {
   display: block;
 }
 
+.text-hover {
+  position: absolute;
+  font-size: 1.25rem;
+  font-style: italic;
+  top: 3em;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  color: #888;
+  z-index: -1;
+  animation: fade 16s forwards;
+}
+
 header {
   margin: .5em;
+  opacity: 0;
+  transition: opacity .5s 1s;
+  background: white;
+}
+
+header:hover {
+  opacity: 1;
+  transition: opacity .5s;
+}
+
+.fade {
+  animation: fade 10s forwards;
+}
+
+@keyframes fade {
+  0% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
 }
 
 .sketch-title {

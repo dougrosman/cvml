@@ -113,11 +113,19 @@ $('#darkmode-toggle').click(function(){
   if($('#darkmode-toggle').is(':checked')){
     $('body').css('background', 'black').css('color', 'white');
     $('li').css('background', '#333');
+    $('.text-hover').css('color', '#ccc');
+    $('header').css('background', 'black');
   } else {
     $('body').css('background', 'white').css('color', 'black');
     $('li').css('background', '#eee');
+    $('.text-hover').css('color', '#888');
+    $('header').css('background', 'white');
   }
 })
+
+setTimeout(function(){
+  $('header').removeClass('fade');
+}, 10001);
 
 
 
