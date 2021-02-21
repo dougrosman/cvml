@@ -9,6 +9,10 @@ body {
   color: #222;
 }
 
+video {
+  transform: rotateY(180deg);
+}
+
 canvas {
     display: block;
 }
@@ -63,22 +67,4 @@ input[type="checkbox"] {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) ;
-}
-
-#vid-container {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, 12.5%)  scale(.25) rotateY(180deg);
-}
-
-.scanline {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-    width: 2px;
-    height: 100%;
-    background: rgba(255, 0, 0, .75);
-    z-index: 10;
-    display: none;
 }
