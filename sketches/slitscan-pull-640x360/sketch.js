@@ -8,6 +8,7 @@ let paused = false;
 let showScanLine = false;
 let canvas;
 let slitX;
+let startX;
 
 function setup() {
   canvas = createCanvas(innerWidth, h);
@@ -17,22 +18,23 @@ function setup() {
   capture.size(w, h);
   capture.hide();
   background(255);
-  loadPixels();
+  startX = w/4;
   slitX = w/5;
 }
 
 function draw() {
 
   capture.loadPixels();
+  loadPixels();
 
-  if(capture.pixels.length > 0) {
+  if(capture.pixels.length > 0 && frameCount > 130) {
     // draw the desired portion of the video to the canvas
-    for(let x = 0; x < slitX; x++){
+    for(let x = startX; x < startX+slitX; x++){
       for(let y = 0; y < h; y++) {
-        let index = (x + (y * width)) * 4;
+        let index = ((x-startX) + (y * width)) * 4;
         let vidIndex = ((w-x) + (y * w)) * 4;
 
-        if(x == slitX-2 && showScanLine){
+        if(x == startX+slitX-2 && showScanLine){
           pixels[index] = capture.pixels[vidIndex]+255;
           pixels[index+1] = capture.pixels[vidIndex+1]-40;
           pixels[index+2] = capture.pixels[vidIndex+2]-40;
@@ -62,8 +64,8 @@ function draw() {
     screencap();
   }
   if(keyIsDown(LEFT_ARROW) && slitX > 2) {
-    slitX--;
-  } else if (keyIsDown(RIGHT_ARROW) && slitX < w-2) {
+    slitX-=2;
+  } else if (keyIsDown(RIGHT_ARROW) && slitX < ((3*w)/4)-2) {
     slitX+=2;
   }
 }
@@ -77,7 +79,7 @@ function drawFPS() {
   if($('#framerate-toggle').is(':checked')){
     $('.fps').show();
     if(frameCount % 5 == 0){
-      select('.fps').html(Math.floor(frameRate()));
+      select('.fps').html(" " + Math.floor(frameRate()));
     }
   } else {
     $('.fps').hide();
@@ -106,6 +108,16 @@ function screencap() {
   }
   imgCount++;
 }
+
+$('#darkmode-toggle').click(function(){
+  if($('#darkmode-toggle').is(':checked')){
+    $('body').css('background', 'black').css('color', 'white');
+    $('li').css('background', '#333');
+  } else {
+    $('body').css('background', 'white').css('color', 'black');
+    $('li').css('background', '#eee');
+  }
+})
 
 
 

@@ -1,7 +1,7 @@
 * {margin: 0; padding: 0; box-sizing: border-box}
 
 html {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 body {
@@ -14,14 +14,11 @@ video {
 }
 
 canvas {
-    display: block;
+  display: block;
 }
 
 header {
   margin: .5em;
-  margin-left: 4em;
-  position: relative;
-  z-index: 20;
 }
 
 .sketch-title {
@@ -36,7 +33,7 @@ header {
   color: black;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 0px;
   z-index: 21;
 }
 
@@ -50,16 +47,28 @@ header {
   color: #fff;
   background: #222;
 }
-
+ul {
+  display: flex;
+  flex-wrap: wrap;
+}
 li {
   list-style-type: none;
   margin: .25em;
+  margin-left: 0;
   margin-right: 1em;
-  display: inline;
+  background: #eee;
+  padding: .5em;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+li strong {
+  margin-right: .25em;
 }
 
 input[type="checkbox"] {
-  margin-right: .25em;
+  margin-right: .325em;
 }
 
 #sketch-parent {
